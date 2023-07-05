@@ -1,0 +1,73 @@
+/*
+Theme Name: Nova
+Theme URI: 
+Author: Rahatul Ahsan
+Author URI: https://www.rahatulahsan.com
+Description: Nova is a modern multipurpose business bootstrap template. The template is highly suitable for any consulting agency, finance, consultant, advisor, business, and other agencies and businesses. Nova gives you the full ability to create modern business websites across various possible fields, industries, and businesses, and both personal and professional usages.
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Version: 1.0
+Requires at least: 5.0
+Tested up to: 5.4
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: nova
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+.nav-links {
+    margin-top: 20px;
+}
+a.page-numbers {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 2px 0 0;
+    border: 1px solid #eee;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+
+}
+
+.page-numbers.current,
+a.page-numbers:hover {
+    background: #f9f9f9;
+}
+
+
+ul.post-categories {
+    display: inline-block;
+    list-style: none;
+    padding: 0px;
+}
+
+.post-categories li {
+    display: inline-block;
+}
+
+/* Sidebar CSS */
+.sidebar-item {
+    padding-bottom: 25px;
+}
+h3.sidebar-title {
+    font-size: 22px;
+    color: var(--color-secondary);
+    font-weight: 400;
+}
+
+.searchform input {
+    position: relative;
+    padding: 3px 10px;
+    border: 1px solid rgba(27, 47, 69, 0.2);
+    background: #fff;
+}
+input#searchsubmit {
+    position: absolute;
+    background: none;
+    font-size: 16px;
+    background: var(--color-primary);
+    color: #fff;
+    transition: 0.3s;
+}
+
