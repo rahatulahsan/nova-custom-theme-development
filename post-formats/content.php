@@ -32,7 +32,7 @@
             </p>
         </div>
 
-        <div class="read-more mt-auto align-self-end">
+        <div class="read-more mt-auto">
             <a href="<?php the_permalink(); ?>">Read More <i class="bi bi-arrow-right"></i></a>
         </div>
 

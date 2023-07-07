@@ -1,3 +1,12 @@
+<?php 
+
+  $nova_layout_class = "col-lg-8";
+  if(!is_active_sidebar('main-sidebar')){
+    $nova_layout_class = "col-lg-12";
+  }
+
+
+?>
 <?php get_header(); ?>
 
 <?php get_template_part('/templates/breadcumb'); ?>
@@ -12,7 +21,7 @@
 
         <div class="row g-5">
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="<?php echo $nova_layout_class; ?>" data-aos="fade-up" data-aos-delay="200">
 
             <article class="blog-details">
 
@@ -192,7 +201,13 @@
 
           </div>
 
-          <?php get_template_part('/templates/sidebar'); ?>
+          <?php 
+          
+            if(is_active_sidebar('main-sidebar')){
+              get_template_part('/templates/sidebar');
+            }
+           
+          ?>
           
         </div>
 

@@ -1,3 +1,12 @@
+<?php 
+
+  $nova_layout_class = "col-lg-8";
+  if(!is_active_sidebar('main-sidebar')){
+    $nova_layout_class = "col-lg-12";
+  }
+
+
+?>
 <?php get_header(); ?>
 
  <main id="main">
@@ -17,38 +26,44 @@
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
+
       <div class="container" data-aos="fade-up">
 
         <div class="row g-5">
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="<?php echo $nova_layout_class; ?>" data-aos="fade-up" data-aos-delay="200">
 
             <div class="row gy-5 posts-list">
 
-            <?php 
-            
-              while(have_posts()){
-                the_post(); 
-                
-                get_template_part('post-formats/content', get_post_format());
+              <?php 
+              
+                while(have_posts()){
+                  the_post(); 
+                  
+                  get_template_part('post-formats/content', get_post_format());
 
-              }
-            
-            ?>
+                }
+              
+              ?>
 
             </div><!-- End blog posts list -->
             
-            
               <?php the_posts_pagination(); ?>
-            
 
           </div>
 
-          <?php get_template_part('/templates/sidebar'); ?>
+              <?php 
+              
+                if(is_active_sidebar('main-sidebar')){
+                  get_template_part('/templates/sidebar'); 
+                }
+              
+              ?>
 
         </div>
 
       </div>
+
     </section><!-- End Blog Section -->
 
   </main><!-- End #main -->
