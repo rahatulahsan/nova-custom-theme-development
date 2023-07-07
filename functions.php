@@ -15,6 +15,8 @@ function nova_load_assets(){
     wp_enqueue_style( 'remexicon', get_template_directory_uri() . '/assets/vendor/remixicon/remixicon.css', '1.0', 'all');
     wp_enqueue_style( 'main-css', get_template_directory_uri() . '/assets/css/main.css', '1.0', 'all');
 
+    wp_enqueue_style('dashicons');
+
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', 1.0, true);
     wp_enqueue_script( 'aosjs', get_template_directory_uri() . '/assets/vendor/aos/aos.js', 1.0, true);
     wp_enqueue_script( 'glightboxjs', get_template_directory_uri() . '/assets/vendor/glightbox/js/glightbox.min.js', 1.0, true);
@@ -33,7 +35,7 @@ function nova_support(){
     load_theme_textdomain('nova', '');
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
-    add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'video', 'quote' ) );
+    add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'video', 'quote', 'audio', 'link' ) );
     add_theme_support('custom-logo', array(
         'width' => 250,
         'height' => 100,
