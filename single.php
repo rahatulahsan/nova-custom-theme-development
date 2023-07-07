@@ -51,17 +51,18 @@
             </article><!-- End blog post -->
 
             <div class="post-author d-flex align-items-center">
-              <img src="assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt="">
+              <?php echo get_avatar( get_the_author_meta( 'id' ), $size = '85', $default = '', $alt = '', $args = array( 'class' => 'rounded-circle flex-shrink-0' ) ); ?>
               <div>
-                <h4>Jane Smith</h4>
+                <?php $display_name = get_the_author_meta( 'nicename', $author_id ); ?>
+                <h4><?php echo $display_name; ?></h4>
                 <div class="social-links">
-                  <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
-                  <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                  <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                  <a href="<?php echo esc_url(get_field('twitter_link', 'user_'. $author_id )); ?>"><i class="bi bi-twitter"></i></a>
+                  <a href="<?php echo esc_url(get_field('facebook_link', 'user_'. $author_id )); ?>"><i class="bi bi-facebook"></i></a>
+                  <a href="<?php echo esc_url(get_field('instagram_link', 'user_'. $author_id )); ?>"><i class="biu bi-instagram"></i></a>
                 </div>
-                <p>
-                  Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
-                </p>
+                
+                <?php $display_description = get_the_author_meta('description', $author_id); ?>
+                <p><?php echo $display_description; ?> </p>
               </div>
             </div><!-- End post author -->
 
