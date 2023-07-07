@@ -15,25 +15,16 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<?php echo get_theme_file_uri( '/assets/img/blog-header.jpg' ); ?>');">
         <div class="container position-relative d-flex flex-column align-items-center">
 
-        <h2>
+        <h2>Posted By: 
             
-        Posts Under:
-
-        <?php 
-
-            if(is_month()){
-                $month =  get_query_var('monthnum');
-                $month_name = DateTime::createFromFormat("!m", $month);
-                echo $month_name->format('F');
-            }else if(is_year()){
-                $year =  esc_html(get_query_var('year'));
-                echo $year;
-            }else if(is_day()){
-                $post_day = get_query_var('day') . "/" . get_query_var('monthnum') . "/" . get_query_var('year');
-                echo $post_day;
-            }
-        
-        ?>
+            <?php
+            
+            $author_id = get_post_field('post_author', get_the_ID());
+            $display_name = get_the_author_meta( 'nicename', $author_id );
+            echo $display_name;
+            
+            ?>
+    
         </h2>
 
         </div>

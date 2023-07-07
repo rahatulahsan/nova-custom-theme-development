@@ -32,9 +32,12 @@
               <h2 class="title">D<?php the_title(); ?></h2>
 
               <div class="meta-top">
-                <?php $author_id = get_post_field('post_author', get_the_ID()); ?>
+                <?php 
+                $author_id = get_post_field('post_author', get_the_ID()); 
+                
+                ?>
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i><a href="<?php get_author_posts_url($author_id); ?>"><?php the_author_meta('display_name',$author_id); ?></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i><a href="<?php echo get_author_posts_url($author_id); ?>"><?php the_author_meta('display_name',$author_id); ?></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><?php the_time( 'F j, Y' );?> </a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?php the_permalink(); ?>">12 Comments</a></li>
                 </ul>
