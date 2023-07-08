@@ -33,7 +33,8 @@
 
               <div class="meta-top">
                 <?php 
-                $author_id = get_post_field('post_author', get_the_ID()); 
+                  
+                  $author_id = get_post_field('post_author', get_the_ID()); 
                 
                 ?>
                 <ul>
