@@ -1,7 +1,7 @@
 <?php 
 
 function nova_load_assets(){
-    wp_enqueue_style( 'style', get_stylesheet_uri() );
+    wp_enqueue_style( 'style', get_stylesheet_uri());
 
     wp_enqueue_style( 'google-font', '//fonts.googleapis.com');
     wp_enqueue_style( 'gstatic', '//fonts.gstatic.com');
@@ -67,3 +67,43 @@ function nova_widgets_setup(){
 }
 
 add_action('widgets_init', 'nova_widgets_setup');
+
+
+//Moving Comment form at the bottom for Blog
+function nova_move_comment_field_to_bottom( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    $fields['comment'] = $comment_field;
+    return $fields;
+    }
+     
+add_filter( 'comment_form_fields', 'nova_move_comment_field_to_bottom');
+
+// Remove Webiste field from the Form
+function nova_remove_comment_url($arg) {
+    $arg['url'] = '';
+    return $arg;
+    }
+     
+add_filter('comment_form_default_fields', 'nova_remove_comment_url');
+
+
+function ea_comment_textarea_placeholder( $args ) {
+	$args['comment_field']  = str_replace( 'textarea', 'textarea placeholder="comment"', $args['comment_field'] );
+	return $args;
+}
+add_filter( 'comment_form_defaults', 'ea_comment_textarea_placeholder' );
+
+/**
+ * Comment Form Fields Placeholder
+ *
+ */
+function be_comment_form_fields( $fields ) {
+	foreach( $fields as &$field ) {
+		$field = str_replace( 'id="author"', 'id="author" placeholder="name*"', $field );
+		$field = str_replace( 'id="email"', 'id="email" placeholder="email*"', $field );
+		$field = str_replace( 'id="url"', 'id="url" placeholder="website"', $field );
+	}
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'be_comment_form_fields' );
