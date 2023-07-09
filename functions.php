@@ -107,3 +107,41 @@ function be_comment_form_fields( $fields ) {
 	return $fields;
 }
 add_filter( 'comment_form_default_fields', 'be_comment_form_fields' );
+
+
+function nova_custom_posts(){
+    // custom posts for Portfolio
+    register_post_type('portfolio', array(
+        'labels' => array(
+            'name' => __('Portfolios', 'nova'),
+            'singular_name' => __('Portfolio', 'nova'),
+            'add_new_item' => __('Add New Portfolio', 'nova'),
+            'edit_item' => __('Edit Portfolio', 'nova'),
+            'new_item' => __('New Portfolio', 'nova'),
+            'new_items' => __('New Portfolios', 'nova'),
+            
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'supports' => array('title', 'editor','thumbnail', 'custom-fields'),
+        'menu_icon' => 'dashicons-format-gallery',
+    ));
+    
+    // Register Taxonomy for Portfolio Post Type
+    register_taxonomy( 'portfolio-cat', 'portfolio', array(
+        'labels' => array(
+            'name' => __('Categories', 'nova'),
+            'singular_name' => __('Category', 'nova')
+        ),
+        'rewrite' => array(
+            'slug' => 'portfolio',
+            'with_front' => false,
+            'hierarchical' => true
+        ),
+        'hierarchical' => true,
+        'show_admin_column' => true
+
+    ) );
+}
+
+add_action('init', 'nova_custom_posts');
