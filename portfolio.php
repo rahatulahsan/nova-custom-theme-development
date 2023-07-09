@@ -38,16 +38,24 @@
               'posts_per_page' => -1
             );
 
+
             $query = new WP_Query($args);
             while($query->have_posts()){
               $query->the_post(); ?>
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="col-lg-4 col-md-6 portfolio-item filter-<?php  
+              
+                $catsName = get_the_terms(get_the_ID(), 'portfolio-cat');
+                foreach($catsName as $catName){
+                  echo $catName->slug;
+                }
+              
+              ?>">
                 <img src="<?php echo the_post_thumbnail_url(); ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4><?php the_title(); ?></h4>
                   <p><?php echo wp_trim_words(get_the_content(), 20); ?></p>
-                  <a href="<?php echo the_post_thumbnail_url(); ?>" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="<?php echo the_post_thumbnail_url(); ?>" title="<?php the_title(); ?>" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="<?php the_permalink(); ?>" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div><!-- End Portfolio Item -->
