@@ -50,6 +50,7 @@ function nova_support(){
     add_image_size('blog-sidebar', 80, 80, true);
     add_image_size('team-member', 300, 300, true);
     add_image_size('review-image', 100, 100, true);
+    add_image_size('about-featured', 416, 216, true);
 
     register_nav_menu('primary', __('Primary Menu', 'nova'));
 
@@ -201,3 +202,19 @@ function nova_custom_posts(){
 }
 
 add_action('init', 'nova_custom_posts');
+
+function nova_about_page_bg(){
+    
+    $nova_featured = get_field('why_choose_us');   
+    $featured_image = $nova_featured['left_side_image'];
+    ?>
+
+    <style>
+        .why-choose-us{
+            background-image: url('<?php echo $featured_image; ?>');
+        }
+    </style>
+
+<?php }
+
+add_action('wp_head', 'nova_about_page_bg');
