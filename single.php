@@ -78,9 +78,15 @@
                 <p><?php echo $display_description; ?> </p>
               </div>
             </div><!-- End post author -->
- 
-          <?php wp_list_comments(); ?>
-          <?php comments_template(); ?>
+  
+          <?php 
+          
+            if(comments_open()){
+              wp_list_comments();
+              comments_template();
+            }
+
+          ?>
 
           
         </div>

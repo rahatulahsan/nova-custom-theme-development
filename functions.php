@@ -1,5 +1,7 @@
 <?php 
 
+require_once get_theme_file_path( '/inc/tgm.php' );
+
 function nova_load_assets(){
     wp_enqueue_style( 'style', get_stylesheet_uri());
 
