@@ -48,6 +48,7 @@ function nova_support(){
     add_image_size('blog-thumb', 412, 310, true);
     add_image_size('blog-single', 850, 630, true);
     add_image_size('blog-sidebar', 80, 80, true);
+    add_image_size('team-member', 300, 300, true);
 
     register_nav_menu('primary', __('Primary Menu', 'nova'));
 
@@ -112,6 +113,23 @@ add_filter( 'comment_form_default_fields', 'be_comment_form_fields' );
 
 
 function nova_custom_posts(){
+
+    // custom posts for Team
+    register_post_type('team', array(
+        'labels' => array(
+            'name' => __('Teams', 'nova'),
+            'singular_name' => __('Team', 'nova'),
+            'add_new_item' => __('Add New Team Member', 'nova'),
+            'edit_item' => __('Edit Team Member', 'nova'),
+            'new_item' => __('New Team Member', 'nova'),
+            'new_items' => __('New Team Members', 'nova'),
+            
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'supports' => array('title','thumbnail', 'custom-fields'),
+        'menu_icon' => 'dashicons-admin-users',
+    ));
     // custom posts for Portfolio
     register_post_type('portfolio', array(
         'labels' => array(
