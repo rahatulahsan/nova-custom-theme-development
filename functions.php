@@ -205,8 +205,11 @@ add_action('init', 'nova_custom_posts');
 
 function nova_about_page_bg(){
     
-    $nova_featured = get_field('why_choose_us');   
-    $featured_image = $nova_featured['left_side_image'];
+    $nova_featured = get_field('why_choose_us');
+    if(isset($nova_featured['left_side_image'])){
+        $featured_image = $nova_featured['left_side_image'];
+    }  
+    
     ?>
 
     <style>
