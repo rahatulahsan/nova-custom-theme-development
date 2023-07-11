@@ -57,6 +57,8 @@
                     </div>
                   </div><!-- End Team Member -->
             <?php }
+
+            wp_reset_postdata(  );
           
           ?>
 

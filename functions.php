@@ -49,6 +49,7 @@ function nova_support(){
     add_image_size('blog-single', 850, 630, true);
     add_image_size('blog-sidebar', 80, 80, true);
     add_image_size('team-member', 300, 300, true);
+    add_image_size('review-image', 100, 100, true);
 
     register_nav_menu('primary', __('Primary Menu', 'nova'));
 
@@ -130,6 +131,41 @@ function nova_custom_posts(){
         'supports' => array('title','thumbnail', 'custom-fields'),
         'menu_icon' => 'dashicons-admin-users',
     ));
+
+    // custom posts for Services
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => __('Services', 'nova'),
+            'singular_name' => __('Service', 'nova'),
+            'add_new_item' => __('Add New Service', 'nova'),
+            'edit_item' => __('Edit Service', 'nova'),
+            'new_item' => __('New Service', 'nova'),
+            'new_items' => __('New Services', 'nova'),
+            
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'supports' => array('title','thumbnail', 'editor', 'custom-fields'),
+        'menu_icon' => 'dashicons-clipboard',
+    ));
+
+    // custom posts for Testimonials
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => __('Testimonials', 'nova'),
+            'singular_name' => __('Testimonial', 'nova'),
+            'add_new_item' => __('Add New Testimonial', 'nova'),
+            'edit_item' => __('Edit Testimonial', 'nova'),
+            'new_item' => __('New Testimonial', 'nova'),
+            'new_items' => __('New Testimonials', 'nova'),
+            
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'supports' => array('title','thumbnail', 'editor', 'custom-fields'),
+        'menu_icon' => 'dashicons-testimonial',
+    ));
+
     // custom posts for Portfolio
     register_post_type('portfolio', array(
         'labels' => array(
