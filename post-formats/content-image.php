@@ -14,7 +14,7 @@
             <ul>
             <li class="d-flex align-items-center"><i class="bi bi-person"></i><?php the_author_posts_link(); ?></li>
             <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?php echo get_day_link(get_post_time('Y'), get_post_time('m'), get_post_time('j'));  ?>"><?php the_time( 'F j, Y' );?> </a></li>
-            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?php the_permalink(); ?>">12 Comments</a></li>
+            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?php the_permalink(); ?>"><?php echo get_comments_number($post->ID); ?> comments</a></li>
             <li class="d-flex align-items-center"><span class="dashicons dashicons-format-image"></span></li>
             </ul>
         </div>
