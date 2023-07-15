@@ -69,6 +69,43 @@ function nova_widgets_setup(){
 		'before_title'  => '<h3 class="sidebar-title">',
 		'after_title'   => '</h3>',
 	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Footer-1', 'nova' ),
+		'id'            => 'footer-1',
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'nova' ),
+		'before_widget' => '<div class="col-lg-5 col-md-12 footer-info">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="footer-logo">',
+		'after_title'   => '</h3>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Footer-2', 'nova' ),
+		'id'            => 'footer-2',
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'nova' ),
+		'before_widget' => '<div class="col-lg-2 col-6 footer-links">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="footer-widget-title">',
+		'after_title'   => '</h4>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Footer-3', 'nova' ),
+		'id'            => 'footer-3',
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'nova' ),
+		'before_widget' => '<div class="col-lg-2 col-6 footer-links">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="footer-widget-title">',
+		'after_title'   => '</h4>',
+	) );
+    register_sidebar( array(
+		'name'          => __( 'Footer-4', 'nova' ),
+		'id'            => 'footer-4',
+		'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'nova' ),
+		'before_widget' => '<div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="footer-widget-title">',
+		'after_title'   => '</h4>',
+	) );
 }
 
 add_action('widgets_init', 'nova_widgets_setup');
@@ -221,3 +258,25 @@ function nova_about_page_bg(){
 <?php }
 
 add_action('wp_head', 'nova_about_page_bg');
+
+
+// ACF Options Setup
+
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+    
+    
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Footer Settings',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+    
+}
